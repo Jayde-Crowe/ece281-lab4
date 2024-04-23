@@ -115,7 +115,7 @@ component elevator_controller_fsm is
        );
 end component elevator_controller_fsm;
 
-component TDM4 is
+/*component TDM4 is
     generic ( constant k_WIDTH : natural  := 4);
     Port( i_clk		: in  STD_LOGIC;
           i_reset        : in  STD_LOGIC; -- asynchronous
@@ -126,14 +126,13 @@ component TDM4 is
           o_data        : out STD_LOGIC_VECTOR (k_WIDTH - 1 downto 0);
           o_sel        : out STD_LOGIC_VECTOR (3 downto 0)    -- selected data line (one-cold)
    );
-end component TDM4;
+end component TDM4;*/
     
 
 
 signal w_clk : std_logic;
 signal w_r_clk : std_logic;
 signal w_r_fsm: std_logic;
-signal w_r_elevator : std_logic;
 signal w_floor: std_logic_vector (3 downto 0);
 
 	   
@@ -157,12 +156,12 @@ begin
 
     elevator_controller_isnt : elevator_controller_fsm
     port map( i_clk => w_clk,
-    i_reset => w_r_elevator,
+    i_reset => w_r_fsm,
     i_stop => sw(1),
     i_up_down => sw(0),
     o_floor => w_floor
 );
-    
+    /*
     TDM4_inst : TDM4
       generic map(K_WIDTH => 4)
       port map( i_clk => clk,
@@ -173,7 +172,7 @@ begin
       1_D0 =>
       o_data => w_data,
       o_sel => an
- );
+ );*/
       
     
 	
