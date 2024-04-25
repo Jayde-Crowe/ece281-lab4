@@ -107,7 +107,7 @@ component clock_divider is
 end component clock_divider;
 
 component elevator_controller_fsm is
-    Port(i_clk : in std_logic;
+    port(i_clk : in std_logic;
         i_reset : in std_logic;
         i_stop : in std_logic;
         i_up_down : in std_logic;
@@ -115,7 +115,7 @@ component elevator_controller_fsm is
        );
 end component elevator_controller_fsm;
 
-component TDM4 is
+/*component TDM4 is
     generic ( constant k_WIDTH : natural  := 4);
     Port( i_clk		: in  STD_LOGIC;
           i_reset        : in  STD_LOGIC; -- asynchronous
@@ -126,7 +126,7 @@ component TDM4 is
           o_data        : out STD_LOGIC_VECTOR (k_WIDTH - 1 downto 0);
           o_sel        : out STD_LOGIC_VECTOR (3 downto 0)    -- selected data line (one-cold)
    );
-end component TDM4;
+end component TDM4;*/
     
 
 
@@ -164,7 +164,7 @@ begin
     i_up_down => sw(0),
     o_floor => w_floor
 );
- 
+/* 
     TDM4_inst : TDM4
       generic map(K_WIDTH => 4)
       port map( i_clk => clk,
@@ -175,7 +175,7 @@ begin
       i_D0 => "0000",
       o_data => w_data,
       o_sel => an
- );
+ );*/
       
     
 	
@@ -232,6 +232,6 @@ begin
 	           "0110" when w_floor = "0110" or w_floor = "0000" else
 	           "0111" when w_floor = "0111" else
 	           "1000" when w_floor = "1000" else
-	           "1001" when w_floor = "1001" else "0000"
+	           "1001" when w_floor = "1001" else "0000";
 	
 end top_basys3_arch;
