@@ -244,8 +244,7 @@ begin
 	-- Tie any unused anodes to power ('1') to keep them off
 
 	
-	an(0) <= '0';
-	an(1) <= '0';
+
 	an(2) <= '1';
 	an(3) <= '1';
 
