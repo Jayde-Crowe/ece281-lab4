@@ -154,9 +154,10 @@ begin
 
     sevenSegDecoder_inst : sevenSegDecoder
     port map (
-    i_D => w_floor,
+    i_D => w_data,
     o_S => seg
 );
+
 
     clkdiv_inst : clock_divider
     generic map (k_DIV => 25000000)
@@ -189,8 +190,8 @@ begin
     myBinary_inst : myBinary
     port map(
             i_data => w_floor,
-            o_tens => w_ones,
-            o_ones => w_tens
+            o_tens => w_tens,
+            o_ones => w_ones
 );
  	
 	
@@ -203,7 +204,7 @@ begin
                w_floor = "1100" or -- floor 12
                w_floor = "1101" or -- floor 13
                w_floor = "1110" or -- floor 14
-               w_floor = "1111" else "1111" ; -- floor 15
+               w_floor = "1111" else "0000" ; -- floor 15
                
      w_ones <= "0001" when w_floor = "0001" or w_floor = "1011" else
                "0010" when w_floor = "0010" or w_floor = "1100" else
