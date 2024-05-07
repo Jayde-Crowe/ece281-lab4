@@ -198,7 +198,7 @@ begin
 	-- CONCURRENT STATEMENTS ----------------------------
 	
 		
-        w_tens <= "0001" when w_floor = "0000" or -- floor 16
+/*        w_tens <= "0001" when w_floor = "0000" or -- floor 16
                w_floor = "1010" or -- floor 10
                w_floor = "1011" or -- floor 11
                w_floor = "1100" or -- floor 12
@@ -214,7 +214,7 @@ begin
                "0110" when w_floor = "0110" or w_floor = "0000" else
                "0111" when w_floor = "0111" else
                "1000" when w_floor = "1000" else
-               "1001" when w_floor = "1001" else "0000";
+               "1001" when w_floor = "1001" else "0000";*/
                
 	w_r_clk <= btnL or btnU;
 	w_r_fsm <= btnR or btnU;
@@ -246,8 +246,8 @@ begin
 
 	
 
-	an(2) <= '1';
-	an(3) <= '1';
+--	an(2) <= '1';
+--	an(3) <= '1';
 
 
 	
