@@ -44,48 +44,25 @@ architecture Behavioral of myBinary is
 
 begin
 
-    process(i_data)
-    
-    begin
-        case i_data is
-            when "0001" | "0010" | "0100" | "0101" |"0110" | "0111" | "1000" | "1001" | "0011" => 
-                o_tens <= "0000";       
-            when "1010" | "1011" | "1100" | "1101" | "1110" | "1111" | "0000" =>
-                o_tens <= "0001";     
-            when others =>
-                o_tens <= "0000";
-            end case;
-            
-         case i_data is
-            when "0001" | "0010" | "0100" | "0101" |"0110" | "0111" | "1000" | "1001" | "0011" => 
-                o_ones <= i_data;
-             when "1010" =>
-                o_ones <= "0000";
-            when "1011" =>
-                o_ones <= "0001";
-             when "1100" =>
-                 o_ones <= "0010";
-             when "1101" =>
-                 o_ones <= "0011";
-             when "1110" =>
-                 o_ones <= "0100";
-             when "1111" =>
-                 o_ones <= "0101";
-             when "0000" =>
-                 o_ones <= "0110"; 
-             when others => 
-                o_ones <= "0000";
-          end case; 
-            
-          
-          
-          
-    
-            
-     end process;
-             
-
-
+		
+        o_tens <= "0001" when i_data = "0000" or -- floor 16
+               i_data = "1010" or -- floor 10
+               i_data = "1011" or -- floor 11
+               i_data = "1100" or -- floor 12
+               i_data = "1101" or -- floor 13
+               i_data = "1110" or -- floor 14
+               i_data = "1111" else "0000" ; -- floor 15
+               
+     o_ones <= "0001" when i_data = "0001" or i_data = "1011" else
+               "0010" when i_data = "0010" or i_data = "1100" else
+               "0011" when i_data = "0011" or i_data = "1101" else
+               "0100" when i_data = "0100" or i_data = "1110" else
+               "0101" when i_data = "0101" or i_data = "1111" else
+               "0110" when i_data = "0110" or i_data = "0000" else
+               "0111" when i_data = "0111" else
+               "1000" when i_data = "1000" else
+               "1001" when i_data = "1001" else "0000";
+               
 
 
 end Behavioral;

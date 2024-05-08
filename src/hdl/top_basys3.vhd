@@ -196,26 +196,7 @@ begin
  	
 	
 	-- CONCURRENT STATEMENTS ----------------------------
-	
-		
-/*        w_tens <= "0001" when w_floor = "0000" or -- floor 16
-               w_floor = "1010" or -- floor 10
-               w_floor = "1011" or -- floor 11
-               w_floor = "1100" or -- floor 12
-               w_floor = "1101" or -- floor 13
-               w_floor = "1110" or -- floor 14
-               w_floor = "1111" else "0000" ; -- floor 15
-               
-     w_ones <= "0001" when w_floor = "0001" or w_floor = "1011" else
-               "0010" when w_floor = "0010" or w_floor = "1100" else
-               "0011" when w_floor = "0011" or w_floor = "1101" else
-               "0100" when w_floor = "0100" or w_floor = "1110" else
-               "0101" when w_floor = "0101" or w_floor = "1111" else
-               "0110" when w_floor = "0110" or w_floor = "0000" else
-               "0111" when w_floor = "0111" else
-               "1000" when w_floor = "1000" else
-               "1001" when w_floor = "1001" else "0000";*/
-               
+
 	w_r_clk <= btnL or btnU;
 	w_r_fsm <= btnR or btnU;
 	
